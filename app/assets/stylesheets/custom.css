@@ -1,0 +1,12 @@
+@import "bootstrap";
+h1
+{
+	font-family: sans-serif;
+	color: red;
+
+}
+.nbtn{
+	display: flex;
+	justify-content: center;
+	//align-items: center;
+}
