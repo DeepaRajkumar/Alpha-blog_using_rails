@@ -1,0 +1,22 @@
+<div class="container">
+
+<%=form_with model: @user, class:"shadow-lg p-3 mb-5 bg-white rounded" do |form| %>
+<div class="mb-3">
+
+	<%= form.label :Username,class:"form-label" %><br> 
+	<%= form.text_field :username,class:"form-control change" %>
+
+</div>
+<p>
+	<%= form.label :Email,class:"form-label" %><br> 
+	<%= form.email_field :email,class:"form-control change" %>
+</p>
+<p>
+	<%= form.label :Password,class:"form-label" %><br> 
+	<%= form.password_field :password,class:"form-control change" %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<%end %>
+</div>

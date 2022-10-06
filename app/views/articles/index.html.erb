@@ -1,4 +1,47 @@
-<h1>Hello welocme Index</h1>
+<h1>The Article Lists </h1>
+
+<% @article.each do |article|%>
+<div class=container>
+<div class="row d-flex justify-content-center">
+	<div class="col-8">
+
+<div class="card text-center mb-5">
+  <div class="card-header">
+   <h2>Created By:<%= article.customer.username %></h2>
+   <% if article.categories.any?%>
+   <h5><span class="m-3">Category:</span><%=render article.categories%></h5>
+   <%end%>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= article.title %></h5>
+    <p class="card-text"><%= article.description %></p>
+    <%= link_to "show",article_path(article.id),class:"btn btn-info"%>
+    <%= link_to "Edit",edit_article_path(article.id), class:"btn btn-primary"%>
+    <%= button_to "Delete",article_path(article.id), method: :delete ,class:"btn btn-warning" ,data: { confirm: 'Are you sure?' }%>
+    <%= link_to 'New Article', new_article_path , class:"btn btn-info"%>
+  </div>
+  <div class="card-footer text-muted">
+    <%= article.created_at %>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<% end%>
+
+	<div class="flickr_pagination d-flex justify-content-center m-5">
+    <%= will_paginate @article, :container => false %>
+  </div>
+	
+
+
+
+
+
+
+
 <table border='1' class="table table-success table-striped">
 	<thead>
 		<tr>

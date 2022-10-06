@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :get_article, only:[:show,:edit,:update,:destroy]
 	def index
-		@article=Article.all
+		@article=Article.paginate(page: params[:page], per_page: 5)
 	end
 	def home
 	end 
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article=Article.new(get_param)
 		#@article.save
-		
+		@article.customer=Customer.find(session[:customer_id])
 		#render plain: @article.inspect
 		if @article.save
 			flash[:notice]="Sucessfully Created the article"
@@ -37,16 +37,16 @@ class ArticlesController < ApplicationController
     	   render 'edit'
     	end 
     end	
-    def delete
+    def destroy
        	#@article=Article.find(params[:id])
        	@article.destroy
-       	redirect_to articles
+       	redirect_to root_path
     end
     private
     def get_article
         @article=Article.find(params[:id])
     end 
     def get_param
-        params.require(:article).permit(:title,:description)
+        params.require(:article).permit(:title,:description,category_ids:[])
     end        	
 end

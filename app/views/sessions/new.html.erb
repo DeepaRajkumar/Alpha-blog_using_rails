@@ -1,0 +1,15 @@
+h1>Welcome to Users session</h1>
+<div class="container">
+  <%= form_with scope: :session, url: login_path, class:"shadow-lg p-3 mb-5 bg-white rounded"  do |form| %>
+      <div class="mb-3">
+    	<%= form.label :Email,class:"form-label" %></br>
+    	<%= form.email_field :email, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :Password,class:"form-label" %></br>
+      <%= form.password_field :password, class:"form-control" %>
+    </div>
+   
+    	<%= form.submit 'login' %>
+  <% end %>
+</div>

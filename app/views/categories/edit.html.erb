@@ -1,0 +1,14 @@
+<div class="container">
+
+<%=form_with model: @category, class:"shadow-lg p-3 mb-5 bg-white rounded" do |form| %>
+<div class="mb-3">
+
+	<%= form.label :Category_name,class:"form-label" %><br> 
+	<%= form.text_field :name,class:"form-control change" %>
+
+</div>
+<p>
+	<%= form.submit %>
+</p>
+<%end %>
+</div>

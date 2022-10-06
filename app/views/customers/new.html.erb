@@ -1,0 +1,10 @@
+<h1>welcome to Customer page</h1>
+<% if @user.errors.any? %>
+ <h2>Folowing Error message is occuring </h2>
+ <ul>
+ 	<% @user.errors.full_messages.each do|msg| %>
+ 	 <li><%= msg %> </li>
+ 	 <%end%>
+ 	</ul>
+ 	<%end%>
+<%=render 'form'%>

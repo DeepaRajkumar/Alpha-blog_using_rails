@@ -1,0 +1,35 @@
+
+
+<div class=container>
+
+<div class="card text-center center-block m-4 user" >
+    <h1><%= gravatar_for @user %><%=@user.username%>'s Portfolio</h1>
+
+</div>
+</div>
+<% @article.each do |art|%>
+<div class=container>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8">
+<div class="card text-center  mb-5">
+<div class="card-header">
+  <h2> Create By:<%= @user.username %></h2>
+   <% if art.categories.any?%>
+   <h5><span class="m-3">Category:</span><%=render art.categories%></h5>
+   <%end%>
+</div>
+  <div class="card-body">
+    <h5 class="card-title"><%= art.title %></h5>
+    <p class="card-text"><%= art.description %></p>
+    
+  </div>
+  <div class="card-footer text-muted">
+    <%= art.created_at %>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<% end%>
+

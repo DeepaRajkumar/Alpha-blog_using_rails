@@ -2,9 +2,17 @@
 
 	<div class="p-5 mb-4 bg-light rounded-3">
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Welcome to Homepage</h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        <h1 class="display-5 fw-bold">Welcome to Korean Learning</h1>
+        
+        <p class="col-md-12 fs-4 ">
+      
+          Nowadays most of the youngest eager to learn Korean.Here you can experience good Korean learning.This page direct you to read all the korean related articles and also you can share your knowledge in korean using create article.
+      
+        </p>
+    
+        <%= link_to "Watch Article",articles_path,class:"btn btn-primary btn-lg mr-5"%> 
+        <%= link_to 'Create New Article', new_article_path , class:"btn btn-warning btn-lg"%>
+   
       </div>
     </div>
 </div>

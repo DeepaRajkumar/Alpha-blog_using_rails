@@ -18,6 +18,9 @@
 	<%= form.label :Description,class:"form-label" %><br> 
 	<%= form.text_area :description,class:"form-control change" %>
 </p>
+<%= form.label :'Article Category',class:"form-label" %><br> 
+<%= form.collection_select :category_ids, Category.all, :id, :name, {:prompt => "Please Select a Category"}, {:multiple => true, class:"form-control"} %>
+
 <p>
 	<%= form.submit %>
 </p>
