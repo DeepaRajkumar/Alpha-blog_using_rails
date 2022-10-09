@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/show/:id', to: 'articles#show'
   get '/about', to:'articles#about'
   get '/delete/:id', to:'articles#destroy'
+  get '/search', to: "articles#search"
   resources 'customers'
   get '/signup', to:'customers#new'
   get '/login', to:'sessions#new'
@@ -13,8 +14,8 @@ Rails.application.routes.draw do
   get '/logout', to:'sessions#destroy'
   resources 'categories'
   resources 'articles' do
-   resources 'comments'
-
+  resources 'comments'
+  post '/add', to:'comments#create'
   end 
   
 end

@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
 			redirect_to customers_path
         else
         	flash.now[:alert]="wrongly logged in"
-        	redirect_to root_path
+        	redirect_to login_path
         end	
 
 	end	
 	def destroy
 		session[:customer_id]=nil
 		flash[:notice]="logged out Sucessfully"
-		redirect_to root_path
+		redirect_to login_path
 	end	
 
 end

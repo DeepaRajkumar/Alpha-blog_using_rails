@@ -1,5 +1,5 @@
-h1>Welcome to Users session</h1>
-<div class="container">
+
+<!-- <!-- <div class="container">
   <%= form_with scope: :session, url: login_path, class:"shadow-lg p-3 mb-5 bg-white rounded"  do |form| %>
       <div class="mb-3">
     	<%= form.label :Email,class:"form-label" %></br>
@@ -12,4 +12,38 @@ h1>Welcome to Users session</h1>
    
     	<%= form.submit 'login' %>
   <% end %>
-</div>
+</div> -->
+
+ <%= form_with scope: :session, url: login_path do |form| %>
+<section class="section-conten padding-y" style="min-height:84vh"> 
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+
+  <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body" style="background-color:#FFFFFF; border-radius: 0.5rem;">
+      <h4 class="card-title mb-4">Sign in</h4>
+      <form>
+          <div class="form-group">
+       <%= form.label :Email,class:"form-label" %></br>
+      <%= form.email_field :email, class:"form-control mb-4" %>
+          </div> <!-- form-group// -->
+          <div class="form-group">
+      <%= form.label :Password,class:"form-label" %></br>
+      <%= form.password_field :password, class:"form-control mb-4" %>
+          </div> <!-- form-group// -->
+          
+        
+          <div class="form-group">
+              <%= form.submit 'Login' %>
+          </div> <!-- form-group// -->    
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+     <p class="text-center mt-4">Don't have account?  <%= link_to "Sign up",signup_path%></p>
+     <br><br>
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
+<%end%>

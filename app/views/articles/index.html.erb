@@ -9,16 +9,22 @@
   <div class="card-header">
    <h2>Created By:<%= article.customer.username %></h2>
    <% if article.categories.any?%>
+    <%if logged_in && current_user.admin%>
    <h5><span class="m-3">Category:</span><%=render article.categories%></h5>
+   <%end%>
    <%end%>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= article.title %></h5>
     <p class="card-text"><%= article.description %></p>
     <%= link_to "show",article_path(article.id),class:"btn btn-info"%>
+    <%if logged_in%>
     <%= link_to "Edit",edit_article_path(article.id), class:"btn btn-primary"%>
+    <%if logged_in && current_user.admin%>
     <%= button_to "Delete",article_path(article.id), method: :delete ,class:"btn btn-warning" ,data: { confirm: 'Are you sure?' }%>
+    <%end%>
     <%= link_to 'New Article', new_article_path , class:"btn btn-info"%>
+    <%end %>
   </div>
   <div class="card-footer text-muted">
     <%= article.created_at %>

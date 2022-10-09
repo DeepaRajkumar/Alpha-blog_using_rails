@@ -48,5 +48,21 @@ class ArticlesController < ApplicationController
     end 
     def get_param
         params.require(:article).permit(:title,:description,category_ids:[])
-    end        	
+    end  
+    def search 
+    	if params[:result].present?
+    		@result=Article.search(params[:result])
+    		put(params[:result])
+            if @result 
+            	 flash[:notice]=" some valid keyword:"
+            	 render 'articles/search'
+            else
+        	   flash[:alert]="Kindly provide some valid keyword:"
+               render 'articles/search'
+            end
+        else
+           flash[:alert]="Kindly provide some keyword name:"
+           render 'articles/search'
+        end
+    end           	
 end

@@ -15,7 +15,12 @@
 <div class="card-header">
   <h2> Create By:<%= @user.username %></h2>
    <% if art.categories.any?%>
-   <h5><span class="m-3">Category:</span><%=render art.categories%></h5>
+   <%if logged_in && current_user.admin%>
+   <h5><span class="m-3">Category: </span>
+    
+  <%=render art.categories%></h5>
+  
+   <%end%>
    <%end%>
 </div>
   <div class="card-body">

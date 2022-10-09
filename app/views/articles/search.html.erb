@@ -1,0 +1,10 @@
+<h1>Welcome to About Page</h1>
+<%if @result%>
+<% @result.each do |result| %>
+<h1 class="align-middle m-5" style="font-style:bolder; text-decoration: underline;"><%= result.title %></h1>
+<p  style= "font-size: 20px;"><%= result.description %></p>
+
+<%end%>
+<%else%>
+<p>no dara</p>
+<%end%>

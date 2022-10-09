@@ -1,40 +1,70 @@
-<h1>Welcome to showpage</h1>
-<p>Title:<%= @article.title %></p>
-<p>Description:<%= @article.description %></p>
+
+<h1 class="align-middle m-5" style="font-style:bolder; text-decoration: underline;"><%= @article.title %></h1>
+<p  style= "font-size: 20px;"><%= @article.description %></p>
 
 <div>
+  <%if logged_in %>
 <%= link_to "Edit", edit_article_path(@article) ,class:"btn btn-primary"%></li>
+<%if current_user.admin %>
   <%= button_to "Destroy", article_path(@article), class:"btn btn-primary",method: :delete %></li>
 </div>
-
-
-
-<h2>show a comment:</h2>
-<% @article.comments.each do |comment| %>
-  
-     <div class="name font-weight-bolder"><%= comment.commenter %>:</div>
-     <div class="content"> <%= comment.body %></div>
-    
-   
 <% end %>
+<%end %>
 
 
+<br>
 
-<h2>Add a comment:</h2>
+<h4 class="font-italic mb-3" style="font-family:Goudy Old Style";>Please leave your valuable comment:</h4>
 <%= form_with(model:  [@article, @article.comments.build]) do |form| %>
   <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.text_field :commenter, class:"form-control w-50" %>
   </p>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.label :comment %><br>
+    <%= form.text_area :body ,class:"form-control w-50" %>
   </p>
   <p>
     <%= form.submit %>
   </p>
-  <%= link_to "Destroy Comment", article_comment_path(@article,@article.comments) ,method: :delete %>
+  
 <% end %>
+
+<br>
+
+ 
+ 
+<h4 class="font-italic" style="font-family:Goudy Old Style"> comment lists :</h4>
+
+
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-0 border"  >
+      <div class="card-body p-4 commentcolor" style="background-color: #f0f2f5;" >
+        
+<% @article.comments.each do |comment| %>
+
+        <div class="card mb-4">
+          <div class="card-body" style="background-color: #fff; border-radius: 0.5rem;">
+            <p><%= comment.body %></p>
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                
+                <p class="small mb-0 ms-2">-<%= comment.commenter %></p>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+       
+       <% end %>
+
+        
+      </div>
+    </div>
+  </div>
+
 
 <!--<div class="card my-1"> # place this card blow the post body.
   <div class="card-body">

@@ -10,7 +10,18 @@ h1
 	font-family: sans-serif;
 	color:rgb(0, 0, 65);
 	text-align: center;
+  /*font-family: Aharoni Bold;*/
 
+   position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 .nbtn{
 	display: flex;
@@ -53,6 +64,28 @@ h1
 	background-color: #DBF9DB !important;
 	color: #64E986 !important;
 }
+
+
+.cat-top-wrap {
+  display: block;
+  width: 100%;
+  background: #efefef;
+  margin-bottom: 20px;
+}
+.cat-top.section {
+  display: block;
+  text-align: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 0 0;
+}
+.widget{
+  position: relative;
+  min-height: 0;
+  _position: static;
+  _height: 1%;
+}
+
 //paginator
 
 .flickr_pagination {
@@ -104,4 +137,8 @@ h1
     color: black;
     font-weight: bold;
     font-size: 100px;
+  }
+  .commentcolor
+  {
+    background-color: #f0f2f5;
   }
